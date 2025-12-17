@@ -5,6 +5,23 @@ open Common.Bits.Bit
 
 
 (*
+  | input | zr | ng | ps |
+  |-------|----|----|----|
+  | zero  |  1 | 0  |  1 |
+  | 1***  |  0 | 1  |  0 |
+  | 0***  |  0 | 0  |  1 |
+*)
+type comparator_input = bit8
+type comparator_output = {zr: bit; ng: bit; ps: bit}
+let comparator ip =
+  let not_zero = orr_8way ip in
+  let zero = nott not_zero in
+  let negative, _, _, _, _, _, _, _ = ip in
+  let positive = nott negative in
+  {zr=zero; ng=negative; ps=positive}
+
+
+(*
   | zext | operation |
   |------|-----------|
   |   0  | imm << 4  |
@@ -46,7 +63,7 @@ type alu_output = bit8
   | 0 | 1 | 1 |    or     |
   | 1 | 0 | 0 |    sub    |
   | 1 | 0 | 1 |           |
-  | 1 | 1 | 0 |           |
+  | 1 | 1 | 0 |    pas    |
   | 1 | 1 | 1 |    pas    |
 *)
 let alu ip =
