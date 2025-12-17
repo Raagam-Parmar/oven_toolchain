@@ -36,9 +36,6 @@ let expand_i instruction  =
   | Jump       rs2  -> jump rs2
   | StPC  rs1       -> stpc rs1
 
-  | DPage      rs2  -> dpage rs2
-  | IPage      rs2  -> ipage rs2
-
   | Label lbl -> [ Label lbl ]
 
 
@@ -109,9 +106,6 @@ let reduce_i instruction =
 
   | Jump       rs2  -> Base.Jump       rs2
   | StPC  rs1       -> Base.StPC  rs1
-
-  | DPage      rs2  -> Base.DPage      rs2
-  | IPage      rs2  -> Base.IPage      rs2
 
   | Li _ | La _
   | Bgez _ | Blez _ | Bnez _

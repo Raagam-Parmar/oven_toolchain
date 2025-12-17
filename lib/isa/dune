@@ -1,4 +1,4 @@
 (library
  (name butter_isa)
- (modules base register pseudo)
+ (modules base register pseudo translation)
  (libraries common))

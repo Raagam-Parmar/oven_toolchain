@@ -48,9 +48,6 @@ rule read =
   | "jump"      { JUMP }
   | "stpc"      { STPC }
 
-  | "dpage"     { DPAGE }
-  | "ipage"     { IPAGE }
-
   | "r0"        { REG (Register.R0) }
   | "r1"        { REG (Register.R1) }
   | "r2"        { REG (Register.R2) }

@@ -29,9 +29,6 @@
 %token JUMP
 %token STPC
 
-%token DPAGE
-%token IPAGE
-
 %token <Butter_isa.Register.t> REG
 %token <int> IMM
 
@@ -70,8 +67,5 @@ let instruction :=
 
   | JUMP ;          rs2=REG;  { Jump        rs2  }
   | STPC ; rs1=REG         ;  { StPC   rs1       }
-
-  | DPAGE;          rs2=REG;  { DPage       rs2  }
-  | IPAGE;          rs2=REG;  { IPage       rs2  }
 
   | lbl=LABEL; COLON       ;  { Label lbl }

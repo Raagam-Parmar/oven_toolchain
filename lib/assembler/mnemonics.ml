@@ -45,8 +45,3 @@ let bnez rs1 rs2 = bltz rs1 rs2 @ bgtz rs1 rs2
 (* PC-Direct shorthands *)
 let jump rs2 = [ Jump rs2 ]
 let stpc rs1 = [ StPC rs1 ]
-
-
-(* Page Register shorthands *)
-let dpage rs1 = [ DPage rs1 ]
-let ipage rs1 = [ IPage rs1 ]

@@ -22,9 +22,6 @@ type instruction =
   | Jump  of Register.t
   | StPC  of Register.t
 
-  | DPage of Register.t
-  | IPage of Register.t
-
 
 let to_string_RR inst rs1 rs2 =
   Printf.sprintf "%s\t%s %s"
@@ -65,6 +62,3 @@ let to_string = function
 
   | Jump rs2 -> to_string_R "jump" rs2
   | StPC rs1 -> to_string_R "stpc" rs1
-
-  | DPage rs2 -> to_string_R "dpage" rs2
-  | IPage rs2 -> to_string_R "ipage" rs2

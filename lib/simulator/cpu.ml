@@ -150,14 +150,6 @@ let stepi state instruction =
     let () = Regfile.write regfile rs1 pc in
     { state with pc = Bits8.succ pc }
 
-  | DPage rs2 ->
-    let vrs2 = Regfile.read regfile rs2 in
-    { state with pc = Bits8.succ pc; dpage = vrs2 }
-
-  | IPage rs2 ->
-    let vrs2 = Regfile.read regfile rs2 in
-    { state with pc = Bits8.succ pc; ipage = vrs2 }
-
 
 (** Step through one cycle *)
 let step state =

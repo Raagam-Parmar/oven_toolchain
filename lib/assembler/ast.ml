@@ -26,9 +26,6 @@ type ('num, 'lbl) instruction =
   | Jump  of Register.t
   | StPC  of Register.t
 
-  | DPage of Register.t
-  | IPage of Register.t
-
   | Label of 'lbl (* pseudo-instruction *)
 
 type ('num, 'lbl) program = ('num, 'lbl) instruction list

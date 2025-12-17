@@ -10,19 +10,19 @@
 | 02     | lui imm       | r0[7:4] = imm           | [0010] [  imm  ] | I    |
 | 03     | lli imm       | r0      = imm           | [0011] [  imm  ] | I    |
 
-| 04     | add rs1 rs2   | rs1 =   rs1  + rs2      | [0100] [s1] [s2] | RR   |
-| 05     | sub rs1 rs2   | rs1 =   rs1  - rs2      | [0101] [s1] [s2] | RR   |
-| 06     | and rs1 rs2   | rs1 =   rs1  & rs2      | [0110] [s1] [s2] | RR   |
-| 07     | or rs1 rs2    | rs1 =   rs1 \| rs2      | [0111] [s1] [s2] | RR   |
-| 08     | not rs1       | rs1 = ~ rs1             | [1000] [s1] [--] | RR   |
-| 09     | mov rs1 rs2   | rs1 =   rs2             | [1001] [s1] [s2] | RR   |
-| 10     |               |                         | [1010]           |      |
-| 11     | stpc rs1      | rs1 = pc                | [1011] [s1] [--] | RR   |
+| 04     | beqz rs1 rs2  | if (rs1 == 0) pc' = rs2 | [0100] [s1] [s2] | RR   |
+| 05     | bltz rs1 rs2  | if (rs1 <  0) pc' = rs2 | [0101] [s1] [s2] | RR   |
+| 06     | bgtz rs1 rs2  | if (rs1 >  0) pc' = rs2 | [0110] [s1] [s2] | RR   |
+| 07     | jump rs2      |               pc' = rs2 | [0111] [--] [s2] | RR   |
 
-| 12     | beqz rs1 rs2  | if (rs1 == 0) pc' = rs2 | [1100] [s1] [s2] | RR   |
-| 13     | bltz rs1 rs2  | if (rs1 <  0) pc' = rs2 | [1101] [s1] [s2] | RR   |
-| 14     | bgtz rs1 rs2  | if (rs1 >  0) pc' = rs2 | [1110] [s1] [s2] | RR   |
-| 15     | jump rs2      |               pc' = rs2 | [1111] [--] [s2] | RR   |
+| 08     | add rs1 rs2   | rs1 =   rs1  + rs2      | [1000] [s1] [s2] | RR   |
+| 09     | not rs1       | rs1 = ~ rs1             | [1001] [s1] [--] | RR   |
+| 10     | and rs1 rs2   | rs1 =   rs1  & rs2      | [1010] [s1] [s2] | RR   |
+| 11     | or rs1 rs2    | rs1 =   rs1 \| rs2      | [1011] [s1] [s2] | RR   |
+| 12     | sub rs1 rs2   | rs1 =   rs1  - rs2      | [1100] [s1] [s2] | RR   |
+| 13     |               |                         | [1101]           |      |
+| 14     | mov rs1 rs2   | rs1 =   rs2             | [1110] [s1] [s2] | RR   |
+| 15     | stpc rs1      | rs1 = pc                | [1111] [s1] [--] | RR   |
 
 ## Instruction Types
 
