@@ -1,5 +1,5 @@
-open Butter_sim.Cpu
-open Butter_as.Assembler
+(* open Butter_sim.Cpu
+open Butter_as
 open Common.Utils
 
 let multiply =
@@ -40,7 +40,7 @@ let multiply =
   "
 
 
-let assembled = list_to_array (assemble (parse multiply))
+let assembled = list_to_array (parse_and_assemble multiply)
 let init_state = init assembled
 let final_state = step_n init_state 200
-let () = pp_state final_state
+let () = Butter_sim.Printer.pp_state final_state *)
