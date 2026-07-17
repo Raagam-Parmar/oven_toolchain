@@ -131,7 +131,20 @@ let assemble program =
   reduced_program
 
 
+let translate program =
+  List.map
+    Translation.translate_instruction
+    program
+
+
 let parse_and_assemble program =
   program
   |> parse
   |> assemble
+
+
+let parse_assemble_translate program =
+  program
+  |> parse
+  |> assemble
+  |> translate
