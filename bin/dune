@@ -1,4 +1,4 @@
-(executable
- (public_name butter-isa)
- (name butter_db)
+(executables
+ (public_names simulator assembler)
+ (names simulator assembler)
  (libraries butter_isa butter_sim butter_debugger butter_as common))
