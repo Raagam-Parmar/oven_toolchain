@@ -1,0 +1,81 @@
+# =========================
+# SETUP CONSTANTS
+# =========================
+
+    lli  5          # r0 = 0x05
+    mov  r1 r0      # r1 = 5
+    lui  5
+
+    lli  3          # r0 = 0x03
+    mov  r2 r0      # r2 = 3
+
+# =========================
+# ALU TESTS
+# =========================
+
+    add  r1 r2      # r1 = 5 + 3 = 8
+    sub  r1 r2      # r1 = 8 - 3 = 5
+    and  r1 r2      # r1 = 5 & 3 = 1
+    or   r1 r2      # r1 = 1 | 3 = 3
+    not  r1         # r1 = ~3 = 0xFC (−4 if signed)
+
+# =========================
+# MEMORY TESTS
+# =========================
+
+    lli  15         # r0 = 0x0f
+    mov  r3 r0      # r3 = 16 (RAM address)
+
+    store r1 r3     # RAM[16] = r1 (0xFC)
+    load  r2 r3     # r2 = RAM[16] = 0xFC
+
+# =========================
+# BRANCH TESTS
+# =========================
+
+    la   SKIP_TEST
+    beqz r0 r0      # r0 == 0 ? NO → fall through
+
+    bltz r1 r0      # r1 < 0 ? YES → pc = r0 (we control r0 next)
+
+    # (this instruction should be skipped if bltz works)
+    lli  9          # SHOULD NOT EXECUTE
+
+SKIP_TEST:
+
+# r0 currently still holds last value used for jump target
+# reload proper jump target explicitly
+
+    la   LABEL_POS
+    mov  r0 r0      # explicit, no-op clarity
+
+LABEL_POS:
+    bgtz r2 r0      # r2 > 0 ? YES -> pc = LABEL_END
+
+    # SHOULD NOT EXECUTE
+    lli  7
+
+LABEL_END:
+
+# =========================
+# JUMP TEST
+# =========================
+
+    la   LABEL_JUMP
+    jump r0         # unconditional jump
+
+    # SHOULD NOT EXECUTE
+    lli  5
+
+LABEL_JUMP:
+
+# =========================
+# PC TEST
+# =========================
+
+    stpc r3         # r3 = pc (store current PC)
+
+# =========================
+# DONE
+# =========================
+
