@@ -24,8 +24,8 @@ let translate_opcode inst : Bits4.t =
 
   | Add (_, _)   -> Bits4.from_int 0b1000
   | Not _        -> Bits4.from_int 0b1001
-  | And (_, _)   -> Bits4.from_int 0b1010
-  | Or (_, _)    -> Bits4.from_int 0b1011
+  | Or (_, _)    -> Bits4.from_int 0b1010
+  | And (_, _)   -> Bits4.from_int 0b1011
   | Sub (_, _)   -> Bits4.from_int 0b1100
   (* unused opcode 1101 *)
   | Move (_, _)  -> Bits4.from_int 0b1110

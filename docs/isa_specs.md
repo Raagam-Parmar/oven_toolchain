@@ -1,4 +1,4 @@
-# Specifications
+    # Specifications
 
 ## Base Instructions
 
@@ -17,8 +17,8 @@
 
 | 08     | add rs1 rs2   | rs1 =   rs1  + rs2      | [1000] [s1] [s2] | RR   |
 | 09     | not rs1       | rs1 = ~ rs1             | [1001] [s1] [--] | RR   |
-| 10     | and rs1 rs2   | rs1 =   rs1  & rs2      | [1010] [s1] [s2] | RR   |
-| 11     | or rs1 rs2    | rs1 =   rs1 \| rs2      | [1011] [s1] [s2] | RR   |
+| 10     | or rs1 rs2    | rs1 =   rs1 \| rs2      | [1010] [s1] [s2] | RR   |
+| 11     | and rs1 rs2   | rs1 =   rs1  & rs2      | [1011] [s1] [s2] | RR   |
 | 12     | sub rs1 rs2   | rs1 =   rs1  - rs2      | [1100] [s1] [s2] | RR   |
 | 13     |               |                         | [1101]           |      |
 | 14     | mov rs1 rs2   | rs1 =   rs2             | [1110] [s1] [s2] | RR   |
